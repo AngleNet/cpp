@@ -83,7 +83,7 @@ void Server::start(std::function<void(char *, int)> handler){
 				std::cout<<"Epoll error"<<std::endl;
 				continue;
 			}
-			if(events[i].data.fd == sock_fd)  
+			if(events[i].data.fd == sock_fd){  
 				for (;;){
 					struct sockaddr in_addr;
 					socklen_t len = sizeof(struct sockaddr);
