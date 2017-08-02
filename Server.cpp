@@ -116,8 +116,8 @@ void Server::start(std::function<void(char *, int)> handler){
 						std::cout<<"Failed to bind to EPOLL"<<std::endl;
 						close(fd);
 					}
-					continue;
-				}else{
+				}
+			}else{
 					for(;;){
 						ssize_t count;
 						char buf[512];
@@ -139,7 +139,6 @@ void Server::start(std::function<void(char *, int)> handler){
 							close(events[i].data.fd);
 						}
 					}
-				}
 			}
 		}
 	}
