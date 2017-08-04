@@ -10,7 +10,7 @@ class Server{
 public:
 	Server(unsigned int port);
 	~Server();
-	void start(std::function<void(char *, int)> handler);
+	void start();
 private:
 	Server(const Server&);
 	Server& operator=(const Server& o);

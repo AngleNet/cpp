@@ -73,7 +73,7 @@ Server::~Server(){
 	close(event_fd);
 	delete[] events;
 }
-void Server::start(std::function<void(char *, int)> handler){
+void Server::start(){
 	for(;;){
 		int num_events = 0, i;
 		num_events = epoll_wait(event_fd, events, EPOLL_MAX_EVENTS, -1);
@@ -144,7 +144,7 @@ void Server::start(std::function<void(char *, int)> handler){
 	}
 }
 Server::Server(const Server& o){}
-Server& operator=(const Server& o){}
+Server& Server::operator=(const Server& o){}
 
 int Server::makeNonBlocking(int fd){
 	int rc = 0, flags = 0;
